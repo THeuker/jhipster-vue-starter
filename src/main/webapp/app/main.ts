@@ -3,6 +3,7 @@ import { AppVue } from './common/primary/app';
 import router from './router/router';
 import { createPinia } from 'pinia';
 import piniaPersist from 'pinia-plugin-persist';
+import './tailwind.css';
 
 // jhipster-needle-main-ts-import
 
