@@ -2,14 +2,12 @@ package com.mycompany.myapp;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.util.Set;
-import java.util.function.Predicate;
-
 import com.mycompany.myapp.error.domain.Assert;
-
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
+import java.util.Set;
+import java.util.function.Predicate;
 
 public final class BeanValidationAssertions {
 

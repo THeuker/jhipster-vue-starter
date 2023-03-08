@@ -3,6 +3,8 @@ package com.mycompany.myapp.error.infrastructure.primary;
 import static org.mockito.Mockito.*;
 
 import ch.qos.logback.classic.Level;
+import com.mycompany.myapp.LogsSpy;
+import com.mycompany.myapp.UnitTest;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validation;
 import jakarta.validation.constraints.NotNull;
@@ -11,8 +13,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.core.MethodParameter;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import com.mycompany.myapp.LogsSpy;
-import com.mycompany.myapp.UnitTest;
 
 @UnitTest
 @ExtendWith(LogsSpy.class)

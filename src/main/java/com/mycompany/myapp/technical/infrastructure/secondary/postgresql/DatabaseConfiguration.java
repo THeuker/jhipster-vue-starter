@@ -6,5 +6,5 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages =  { "com.mycompany.myapp" }, enableDefaultTransactions = false)
+@EnableJpaRepositories(basePackages = { "com.mycompany.myapp" }, enableDefaultTransactions = false)
 public class DatabaseConfiguration {}

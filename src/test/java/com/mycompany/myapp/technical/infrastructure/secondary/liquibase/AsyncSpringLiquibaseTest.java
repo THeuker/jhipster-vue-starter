@@ -11,6 +11,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import ch.qos.logback.classic.Level;
+import com.mycompany.myapp.LogsSpy;
+import com.mycompany.myapp.UnitTest;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.Duration;
@@ -26,8 +28,6 @@ import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.mock.env.MockEnvironment;
-import com.mycompany.myapp.LogsSpy;
-import com.mycompany.myapp.UnitTest;
 
 @ExtendWith(LogsSpy.class)
 @UnitTest
@@ -115,9 +115,9 @@ class AsyncSpringLiquibaseTest {
     void shouldWarnWhenLiquibaseExecutionIsSlow() throws LiquibaseException, SQLException {
       liquibaseProperties.setEnabled(true);
       Duration slownessThreshold = Duration.ofMillis(50);
-      TestAsyncSpringLiquibase asyncSpringLiquibase = spy(new TestAsyncSpringLiquibase(executor, environment, liquibaseProperties,
-        slownessThreshold
-      ));
+      TestAsyncSpringLiquibase asyncSpringLiquibase = spy(
+        new TestAsyncSpringLiquibase(executor, environment, liquibaseProperties, slownessThreshold)
+      );
       asyncSpringLiquibase.setFakeDuration(slownessThreshold.plusMillis(1));
 
       asyncSpringLiquibase.initDb();
@@ -125,7 +125,6 @@ class AsyncSpringLiquibaseTest {
       logs.shouldHave(Level.DEBUG, "Liquibase has updated your database in");
       logs.shouldHave(Level.WARN, "Warning, Liquibase took more than %s seconds to start up!".formatted(slownessThreshold.toSeconds()));
     }
-
   }
 
   private static class DirectExecutor implements Executor {
@@ -140,7 +139,12 @@ class AsyncSpringLiquibaseTest {
 
     private Duration fakeDuration = Duration.ZERO;
 
-    public TestAsyncSpringLiquibase(Executor executor, Environment environment, LiquibaseProperties liquibaseProperties, Duration slownessThreshold) {
+    public TestAsyncSpringLiquibase(
+      Executor executor,
+      Environment environment,
+      LiquibaseProperties liquibaseProperties,
+      Duration slownessThreshold
+    ) {
       super(executor, environment, liquibaseProperties, slownessThreshold);
     }
 
@@ -160,7 +164,6 @@ class AsyncSpringLiquibaseTest {
       return source;
     }
 
-
     @Override
     protected Liquibase createLiquibase(Connection c) {
       return null;
@@ -176,6 +179,5 @@ class AsyncSpringLiquibaseTest {
         throw new Error(x);
       }
     }
-
   }
 }
