@@ -1,4 +1,4 @@
-# JHipster Sample Application
+# JHipster Vue.js Starter
 
 ## Node.js and NPM
 
