@@ -1,4 +1,4 @@
-# JHipster Vue.js Starter
+# JHipster Lite Vue.js Starter
 
 ## Node.js and NPM
 
@@ -6,6 +6,23 @@ Before you can build this project, you must install and configure the following 
 
 1. [Java](https://nodejs.org/) ^17.0.5: We use java/javac to run & compile the back-end server.
 2. [Node.js](https://nodejs.org/) ^18.14.2: We use Node to run a development web server and build the project.
+
+```bash
+sudo apt install openjdk-17-jdk openjdk-17-jre
+```
+```bash
+sudo update-alternatives --config java
+```
+```bash
+sudo update-alternatives --config javac
+```
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+```
+```bash
+nvm install 18 && nvm use 18
+```
 
 After installing Node, you should be able to run the following command to install development tools.
 You will only need to run this command when dependencies change in [package.json](package.json).
@@ -41,10 +58,10 @@ docker-compose -f src/main/docker/postgresql.yml up -d
 - [Package types](documentation/package-types.md)
 - [Assertions](documentation/assertions.md)
 - [Logs spy](documentation/logs-spy.md)
-- [Postgresql](documentation/postgresql.md)
+- [PostgreSQL](documentation/postgresql.md)
 - [CORS configuration](documentation/cors-configuration.md)
 - [Vue](documentation/vue.md)
 - [Caffeine](documentation/caffeine.md)
-- [Jpa pages](documentation/jpa-pages.md)
+- [JPA pages](documentation/jpa-pages.md)
 
 <!-- jhipster-needle-documentation -->
