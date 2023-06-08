@@ -4,8 +4,8 @@
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
 
-1. [Java](https://nodejs.org/) ^17.0.5: We use java/javac to run & compile the back-end server.
-2. [Node.js](https://nodejs.org/) ^18.14.2: We use Node to run a development web server and build the project.
+1. [Java](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html) ^17.0.5: We use java/javac to run & compile the back-end server.
+2. [Node.js](https://nodejs.org) ^18.14.2: We use Node to run a development web server and build the project.
 
 ```bash
 sudo apt install openjdk-17-jdk openjdk-17-jre
